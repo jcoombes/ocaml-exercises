@@ -1,6 +1,4 @@
 (executable
-  (name advent2022)
-  (public_name advent2022)
-  (libraries base base.md5 stdio unix re containers)
-  (preprocess
-    (pps ppx_deriving.ord ppx_compare ppx_hash ppx_let ppx_show ppx_sexp_conv)))
+ (name advent2022)
+ (public_name advent2022)
+ (libraries base stdio re unix str))
