@@ -1,6 +1,3 @@
-(* Use this: *)
-(* type shape = Rock | Paper | Skizzorz *)
-
 let score_pair pair =
   let opp, me = pair in
   let choice_score =
@@ -15,6 +12,20 @@ let score_pair pair =
   in
   choice_score + outcome_score
 
+let needed_win_into_score_pair pair =
+  let opp, needed = pair in
+  match (opp, needed) with
+  | "A", "X" -> ("A", "Z")
+  | "A", "Y" -> ("A", "X")
+  | "A", "Z" -> ("A", "Y")
+  | "B", "X" -> ("B", "X")
+  | "B", "Y" -> ("B", "Y")
+  | "B", "Z" -> ("B", "Z")
+  | "C", "X" -> ("C", "Y")
+  | "C", "Y" -> ("C", "Z")
+  | "C", "Z" -> ("C", "X")
+  | _ -> failwith "Invalid"
+
 let run () =
   let input = Stdio.In_channel.read_all (Utils.input_path_for_day 2) in
   let lines = Str.split (Str.regexp "\n") input in
@@ -24,7 +35,18 @@ let run () =
   let pairs = List.map (fun atom -> (List.nth atom 0, List.nth atom 1)) atoms in
   let scores = List.map score_pair pairs in
   let total_score = List.fold_left ( + ) 0 scores in
-  Stdio.printf "The total rock paper scissors score is now %d." total_score
+
+  let pairs' = List.map needed_win_into_score_pair pairs in
+  let scores' = List.map score_pair pairs' in
+  let total_score' = List.fold_left ( + ) 0 scores' in
+
+  let out_str =
+    "[Part A]: The total rock paper scissors score is now "
+    ^ Int.to_string total_score
+    ^ ".\n[Part B]: The total rock paper tcp score from needed wins is now "
+    ^ Int.to_string total_score' ^ "."
+  in
+  print_endline out_str
 
 (* let (opp, me) = pair *)
 (* let (opp, me) = (choice_score ) + outcome_score *)
