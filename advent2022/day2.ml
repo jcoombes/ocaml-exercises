@@ -1,19 +1,16 @@
+(* Use this: *)
+(* type shape = Rock | Paper | Skizzorz *)
+
 let score_pair pair =
   let opp, me = pair in
   let choice_score =
-    match me with "X" -> 0 | "Y" -> 1 | "Z" -> 2 | _ -> failwith "Invalid"
+    match me with "X" -> 1 | "Y" -> 2 | "Z" -> 3 | _ -> failwith "Invalid"
   in
   let outcome_score =
     match (opp, me) with
-    | "A", "X" -> 3
-    | "A", "Y" -> 6
-    | "A", "Z" -> 0
-    | "B", "X" -> 0
-    | "B", "Y" -> 3
-    | "B", "Z" -> 6
-    | "C", "X" -> 6
-    | "C", "Y" -> 0
-    | "C", "Z" -> 3
+    | "A", "X" | "B", "Y" | "C", "Z" -> 3
+    | "A", "Y" | "B", "Z" | "C", "X" -> 6
+    | "A", "Z" | "B", "X" | "C", "Y" -> 0
     | _ -> failwith "Invalid"
   in
   choice_score + outcome_score
