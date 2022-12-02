@@ -11,4 +11,5 @@ let run_and_flush (module M : AdventDay) =
 let () =
   Stdio.printf "Yo\n";
   run_and_flush (module Day1);
+  run_and_flush (module Day2);
   ()

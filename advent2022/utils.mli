@@ -4,3 +4,6 @@ val greet : int -> unit
 val input_path_for_day : int -> string
 (** [input_path_for_day day] returns the absolute path of the input file for day
     [day]. *)
+
+val print_tuple : string * string -> unit
+(* Prints a tuple of strings. *)
