@@ -14,23 +14,3 @@ let run () =
   in
   Stdio.printf "The chonkiest three elves is now ... %d calories (combined)"
     biggest_three
-
-(* let max_elf : int = List.fold_left Int.max 0 elves' in
-   Stdio.printf "The biggest elf is a chonky boi with %d calories.\n" max_elf *)
-
-(* let string_of_elves = List.fold_left ( ^ ) "" elves in
-   Stdio.print_endline string_of_elves *)
-
-(* we want to create a list of lists data structure *)
-
-(* def max_cal_elf(calories: list[list]):
-    max_so_far = 0
-    for elf in calories:
-        if sum(elf) > max_so_far:
-     max_so_far = sum(elf)
-    return max_so_far
-*)
-(*
-
-   str.split("\n\n")
-   elf.split("\n").map (int_of_string) *)
