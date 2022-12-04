@@ -43,7 +43,7 @@ let run () =
   let out_str =
     "[Part A]: The total rock paper scissors score is now "
     ^ Int.to_string total_score
-    ^ ".\n[Part B]: The total rock paper tcp score from needed wins is now "
+    ^ ".\n[Part B]: The total rock paper top score from needed wins is now "
     ^ Int.to_string total_score' ^ "."
   in
   print_endline out_str
